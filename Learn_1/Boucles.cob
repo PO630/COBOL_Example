@@ -70,7 +70,7 @@
            PERFORM UNTIL i > 10
                DISPLAY pla-line
                ADD 1 TO i
-           END-PERFORM
+           END-PERFORM.
 
       *|______________________________________________________________|
 
@@ -80,7 +80,7 @@
 
            PERFORM VARYING i FROM 5 BY 2 UNTIL i > 20
                DISPLAY pla-line
-           END-PERFORM
+           END-PERFORM.
 
       *|______________________________________________________________|
       
