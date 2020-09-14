@@ -16,7 +16,7 @@
 
       *    Tableau int 
            1 tab.
-               2 entier PIC 99 OCCURS 99.
+               2 entier PIC 99 OCCURS 99 INDEXED BY indice.
 
       *    Matrice
            1 tab-multi.
@@ -52,8 +52,7 @@
 
       *    Print \n
            1 next-line.
-               2 VALUE ' '.
-               2 VALUE X'0A'.
+               2 LINE + 1 COL 1 VALUE ' '.
 
       *    Clear screen
            1 clear.
@@ -84,6 +83,24 @@
                MOVE i TO entier(i)
                DISPLAY print-tab
            END-PERFORM.
+
+      *    Tri du tableau
+           SORT entier DESCENDING.
+
+           DISPLAY next-line.
+
+           PERFORM TEST AFTER VARYING i FROM 1 BY 1 UNTIL i = n 
+               DISPLAY print-tab
+           END-PERFORM.
+
+           DISPLAY next-line.
+           
+           SET indice TO 1.
+           SEARCH entier
+               AT END 
+                   DISPLAY 'Element introuvable...'
+               WHEN entier(indice) = 5
+                   DISPLAY "Element " entier(indice) " trouve ! ".
 
            
 
